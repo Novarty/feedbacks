@@ -1,0 +1,12 @@
+.container
+  .form-signin
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = devise_error_messages!
+      .panel.panel-default.panel-body
+        h1.form-signin-heading
+          | Sign in
+        = f.input :email, placeholder: 'user@domain.com'
+        = f.input :password
+        .actions
+          = f.submit "Log in", class: "btn btn-lg btn-success"
+    = render "devise/shared/links"

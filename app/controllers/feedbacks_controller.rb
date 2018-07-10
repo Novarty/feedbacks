@@ -13,9 +13,12 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    feedback.save
-    # FeedbacksMailer.send_feedback(feedback).deliver
-    respond_with feedback, location: -> { new_feedback_path(feedback) }
+    if feedback.save
+      redirect_to root_path, notice: 'Feedback was successfully send!'
+      FeedbackMailer.send_feedback(feedback).deliver
+    else
+      render :new
+    end
   end
 
   private
