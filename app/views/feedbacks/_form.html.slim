@@ -1,0 +1,9 @@
+= simple_form_for feedback do |f|
+  .field
+    = f.input :name
+  .field
+    = f.input :email
+  .field
+    = f.input :text, as: :text
+  .actions
+    = f.button :submit, "Send feedback", class: "btn btn-success"
