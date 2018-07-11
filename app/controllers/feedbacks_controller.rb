@@ -14,7 +14,7 @@ class FeedbacksController < ApplicationController
 
   def create
     if feedback.save
-      redirect_to root_path, notice: 'Feedback was successfully send!'
+      redirect_to root_path, notice: 'Feedback was successfully sent!'
       FeedbackMailer.send_feedback(feedback).deliver
     else
       render :new

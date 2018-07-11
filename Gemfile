@@ -22,6 +22,7 @@ gem 'responders'
 gem 'decent_exposure', '3.0.0'
 gem 'sendgrid-ruby'
 gem 'figaro'
+gem "valid_email2"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
