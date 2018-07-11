@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :feedbacks, only: [:index, :new, :create]
+  resources :feedbacks, only: %i[index new create]
   devise_for :users
 
   root to: "feedbacks#new"

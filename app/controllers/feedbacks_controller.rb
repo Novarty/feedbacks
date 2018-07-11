@@ -6,27 +6,27 @@ class FeedbacksController < ApplicationController
   end
 
   def new
-    if current_user
-      feedback.name = current_user.name
-      feedback.email = current_user.email
-    end
+    return unless current_user
+    feedback.name = current_user.name
+    feedback.email = current_user.email
   end
 
   def create
     if feedback.save
-      redirect_to root_path, notice: 'Feedback was successfully sent!'
-      FeedbackMailer.send_feedback(feedback).deliver
+      FeedbackMailer.send_feedback(feedback).deliver_now
+      redirect_to root_path, notice: "Feedback was successfully sent!"
     else
       render :new
     end
   end
 
   private
-    def feedback_params
-      params.require(:feedback).permit(:name, :email, :text)
-    end
 
-    def init_feedbacks
-      feedbacks = Feedback.all
-    end
+  def feedback_params
+    params.require(:feedback).permit(:name, :email, :text)
+  end
+
+  def init_feedbacks
+    feedbacks = Feedback.all
+  end
 end
