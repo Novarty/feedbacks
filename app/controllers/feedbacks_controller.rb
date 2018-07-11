@@ -3,6 +3,7 @@ class FeedbacksController < ApplicationController
   expose :feedback
 
   def index
+    authorize feedback
   end
 
   def new
@@ -27,6 +28,6 @@ class FeedbacksController < ApplicationController
   end
 
   def init_feedbacks
-    feedbacks = Feedback.all
+    Feedback.all.order(created_at: :desc)
   end
 end
