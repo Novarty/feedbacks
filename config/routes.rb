@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :feedbacks, only: %i[index new create]
+  devise_for :users
+
+  root to: "feedbacks#new"
 end
