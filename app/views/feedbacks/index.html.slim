@@ -1,5 +1,6 @@
 .container
   h1 All feedbacks
-  = link_to 'Send feedback', new_feedback_path
+  = render "layouts/search_form"
+  hr
   .row
     = render feedbacks

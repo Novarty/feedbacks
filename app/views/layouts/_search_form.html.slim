@@ -1,0 +1,7 @@
+.row
+  .col-md-4
+    form.form-inline
+      = form_tag feedbacks_path, method: :get do
+        = text_field_tag :search, params[:search], placeholder: 'Search',
+        class: 'form-control'
+        = submit_tag 'Search', name: nil, class: 'btn btn-primary'

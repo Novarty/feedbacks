@@ -28,6 +28,12 @@ class FeedbacksController < ApplicationController
   end
 
   def init_feedbacks
-    Feedback.all.order(created_at: :desc)
+    feedbacks = Feedback.order(created_at: :desc)
+    if params[:search]
+      feedbacks = feedbacks.where("name ILIKE ? OR text ILIKE ?",
+        "%#{params[:search]}%",
+        "%#{params[:search]}%")
+    end
+    feedbacks
   end
 end
