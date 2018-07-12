@@ -34,6 +34,6 @@ class FeedbacksController < ApplicationController
         "%#{params[:search]}%",
         "%#{params[:search]}%")
     end
-    feedbacks
+    feedbacks.page(params[:page])
   end
 end

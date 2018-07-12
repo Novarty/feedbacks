@@ -1,6 +1,6 @@
 .container
   h1 All feedbacks
   = render "layouts/search_form"
-  hr
+  = paginate feedbacks
   .row
     = render feedbacks
