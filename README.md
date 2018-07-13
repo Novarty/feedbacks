@@ -1,5 +1,10 @@
 # README
 
+Link to Heroku app: https://agile-eyrie-16767.herokuapp.com
+##### Admin user credentials
+Login: admin@example.com
+Password: 123456 
+___
 ### Quick Start
 ```bash
 # clone project
