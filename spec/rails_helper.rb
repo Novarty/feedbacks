@@ -6,12 +6,14 @@ require "rspec/rails"
 require "shoulda/matchers"
 require "capybara/email/rspec"
 require "support/factory_bot"
+require "pundit/rspec"
 
 Dir[Rails.root.join("spec", "support", "**", "*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
+  config.include Warden::Test::Helpers
 
   config.before(:suite) do
     if config.use_transactional_fixtures?

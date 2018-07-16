@@ -3,6 +3,14 @@ class FeedbackPolicy < ApplicationPolicy
     user.present? && user.admin?
   end
 
+  def new?
+    create?
+  end
+  
+  def create?
+    true
+  end
+
   private
 
   def feedback

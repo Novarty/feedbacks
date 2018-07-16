@@ -1,15 +1,15 @@
 FactoryBot.define do
   factory :user do
-    name "John"
-    email "user@example.com"
-    password "password"
+    name Faker::Name.name
+    email Faker::Internet.email
+    password Faker::Internet.password
     role :user
   end
 
   factory :admin, class: User do
-    name "Admin"
-    email "admin@ex.com"
-    password "password"
+    name Faker::Name.name
+    email Faker::Internet.email
+    password Faker::Internet.password
     role :admin
   end
 end
