@@ -7,8 +7,8 @@ feature "User leaving feedback" do
 
   scenario "with a pre-filled name and email" do
     within("form") do
-      expect(find_field('Name').value).to eq user.name
-      expect(find_field('Email').value).to eq user.email
+      expect(find_field("Name").value).to eq user.name
+      expect(find_field("Email").value).to eq user.email
       fill_in "Text", with: "My feedback."
     end
     click_button "Send feedback"
