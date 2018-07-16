@@ -1,5 +1,6 @@
 .container
+  = render "layouts/search_form"
   h1 All feedbacks
-  = link_to 'Send feedback', new_feedback_path
+  = paginate feedbacks
   .row
     = render feedbacks

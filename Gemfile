@@ -8,9 +8,12 @@ gem "bootstrap-sass", "~> 3.3.7"
 gem "coffee-rails", "~> 4.2"
 gem "decent_exposure", "3.0.0"
 gem "devise"
+gem "faker", "~> 1.9", ">= 1.9.1"
 gem "figaro"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
+gem "kaminari"
+gem "kaminari-bootstrap", "~> 3.0.1"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 3.11"
 gem "pundit"
@@ -27,6 +30,7 @@ gem "valid_email2"
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
+  gem "factory_bot_rails", "~> 4.0"
   gem "rspec-rails"
 end
 

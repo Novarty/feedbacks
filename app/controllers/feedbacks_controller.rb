@@ -3,6 +3,7 @@ class FeedbacksController < ApplicationController
   expose :feedback
 
   def index
+    authorize feedback
   end
 
   def new
@@ -27,6 +28,12 @@ class FeedbacksController < ApplicationController
   end
 
   def init_feedbacks
-    feedbacks = Feedback.all
+    feedbacks = Feedback.order(created_at: :desc)
+    if params[:search]
+      feedbacks = feedbacks.where("name ILIKE ? OR text ILIKE ?",
+        "%#{params[:search]}%",
+        "%#{params[:search]}%")
+    end
+    feedbacks.page(params[:page])
   end
 end
