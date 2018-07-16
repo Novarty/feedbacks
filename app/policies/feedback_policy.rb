@@ -6,7 +6,7 @@ class FeedbackPolicy < ApplicationPolicy
   def new?
     create?
   end
-  
+
   def create?
     true
   end
